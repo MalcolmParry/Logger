@@ -4,8 +4,8 @@ project "Logger"
     kind "StaticLib"
     language "C++"
 
-    targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-    objdir ("bin/int/" .. outputdir .. "/%{prj.name}")
+    targetdir (_WORKING_DIR .. "/bin/" .. outputdir .. "/%{prj.name}")
+    objdir (_WORKING_DIR .. "/bin/int/" .. outputdir .. "/%{prj.name}")
 
     files {
         "src/**.cpp",

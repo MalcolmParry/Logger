@@ -83,7 +83,19 @@ namespace Logger {
 		std::stringstream message;
 
 		message << "[" << name << "][" << type << "]: ";
-		message << format;
+		uint8 spaceCount = message.str().size();
+
+		for (uint32 i = 0; i < format.size(); i++) {
+			if (format[i] == '\n') {
+				message << '\n';
+
+				for (uint8 u = 0; u < spaceCount; u++) {
+					message << ' ';
+				}
+			} else {
+				message << format[i];
+			}
+		}
 
 		Print(message.str(), foreground);
 	}
