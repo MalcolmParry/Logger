@@ -7,21 +7,32 @@
 
 #endif
 
+#ifndef LOG_COLOR
+#define LOG_COLOR Logger::Color::Green
+#endif
+
+#ifndef WARN_COLOR
+#define WARN_COLOR Logger::Color::Yellow
+#endif
+
+#ifndef ERROR_COLOR
+#define ERROR_COLOR Logger::Color::Red
+#endif
 
 namespace Logger {
 	template<typename... Args>
 	inline void Profile::Log(std::string format, Args... args) {
-		InternalPrint("Log", Color::Green, format, args...);
+		InternalPrint("Log", LOG_COLOR, format, args...);
 	}
 
 	template<typename... Args>
 	inline void Profile::Warn(std::string format, Args... args) {
-		InternalPrint("Warn", Color::White, format, args...);
+		InternalPrint("Warn", WARN_COLOR, format, args...);
 	}
 
 	template<typename... Args>
 	inline void Profile::Error(std::string format, Args... args) {
-		InternalPrint("Error", Color::Red, format, args...);
+		InternalPrint("Error", ERROR_COLOR, format, args...);
 
 		LOGGER_EXIT("");
 	}
@@ -44,17 +55,17 @@ namespace Logger {
 
 	template<typename... Args>
 	inline void Profile::Log(std::string format) {
-		InternalPrint("Log", Color::Green, format);
+		InternalPrint("Log", LOG_COLOR, format);
 	}
 
 	template<typename... Args>
 	inline void Profile::Warn(std::string format) {
-		InternalPrint("Warn", Color::White, format);
+		InternalPrint("Warn", WARN_COLOR, format);
 	}
 
 	template<typename... Args>
 	inline void Profile::Error(std::string format) {
-		InternalPrint("Error", Color::Red, format);
+		InternalPrint("Error", ERROR_COLOR, format);
 
 		LOGGER_EXIT("");
 	}
