@@ -121,6 +121,8 @@ namespace Logger {
 			}
 		}
 
+		message << '\n';
+
 		Print(message.str(), foreground);
 	}
 }
