@@ -41,9 +41,11 @@ namespace Logger {
 
 	template<typename... Args>
 	inline void Profile::Error(std::string format, Args... args) {
-		InternalPrint("Error", ERROR_COLOR, format, args...);
+		std::string message = Format(format, args...);
 
-		LOGGER_EXIT("");
+		InternalPrint("Error", ERROR_COLOR, message);
+
+		LOGGER_EXIT(message);
 	}
 
 	template<typename... Args>
@@ -77,7 +79,7 @@ namespace Logger {
 	inline void Profile::Error(std::string format) {
 		InternalPrint("Error", ERROR_COLOR, format);
 
-		LOGGER_EXIT("");
+		LOGGER_EXIT(format);
 	}
 
 	inline void Profile::Assert(bool condition, std::string format) {
