@@ -82,7 +82,11 @@ namespace Logger {
 	inline void Profile::InternalPrint(std::string type, uint8 foreground, std::string format) {
 		std::stringstream message;
 
-		message << "[" << name << "][" << type << "]: ";
+		if (name.size() != 0) {
+			message << "[" << name << "]";
+		}
+
+		message << "[" << type << "]: ";
 		uint8 spaceCount = message.str().size();
 
 		for (uint32 i = 0; i < format.size(); i++) {
