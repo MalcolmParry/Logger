@@ -8,7 +8,7 @@
 namespace Logger {
 	class Profile {
 	public:
-		Profile(std::string _name, uint8 _background);
+		Profile(std::string name, uint8 background);
 		~Profile();
 
 		void Print(std::string str, uint8 color = Color::White);

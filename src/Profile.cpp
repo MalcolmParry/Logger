@@ -3,9 +3,9 @@
 #include <iostream>
 
 namespace Logger {
-	Profile::Profile(std::string _name, uint8 _background) {
-		name = _name;
-		background = Color::MakeColor(Color::None, _background);
+	Profile::Profile(std::string name, uint8 background) {
+		this->name = name;
+		this->background = Color::MakeColor(Color::None, background);
 	}
 
 	Profile::~Profile() {
