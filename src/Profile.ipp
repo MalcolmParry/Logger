@@ -107,7 +107,7 @@ namespace Logger {
 		}
 
 		message << "[" << type << "]: ";
-		uint8 spaceCount = message.str().size();
+		uint8 spaceCount = (uint32) message.str().size();
 
 		for (uint32 i = 0; i < format.size(); i++) {
 			if (format[i] == '\n') {
